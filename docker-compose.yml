@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  streamer:
+      image: fmoriguchi/spring-boot-artemis:0.0.1
+      container_name: spring-boot-artemis
+      build: .
+      ports:
+        - "8080:8080"
+
+  artemis:
+      image: apache/activemq-artemis
+      container_name: artemis
+      ports:
+          - "61616:61616"
+          - "8161:8161"
+      expose:
+          - "8161"
+          - "61616"
+      environment:
+          - ARTEMIS_USER=admin
+          - ARTEMIS_PASSWORD=admin
+          #- EXTRA_ARGS= --http-host 0.0.0.0 --relax-jolokia --max-disk-usage=100
+
+
