@@ -13,16 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("messages")
 class MessageResource {
-	
+
 	private final SendMessage message;
-	
+
 	MessageResource(SendMessage message) {
 		this.message = message;
 	}
 
 	@GetMapping("{m}")
 	String send(@PathVariable String m) {
-		
+
 		message.send(m);
 
 		return m;
