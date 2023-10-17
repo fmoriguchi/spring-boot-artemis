@@ -21,7 +21,7 @@ class MessageListener {
 	@JmsListener(destination = "message")
 	void onMessage(String message) {
 
-		log.info("Message received > {}", message);
+		log.info("Message received > '{}'", message);
 	}
 
 }
